@@ -58,7 +58,8 @@ h1 {
 }
 
 .item input {
-  position: absolute;
+  display: none;
+  /*   position: absolute; */
   opacity: 0;
   z-index: -1;
 }
@@ -79,28 +80,32 @@ h1 {
   margin: 0px auto;
 }
 
-.item input:hover~.meme {
+label {
+  cursor: pointer;
+}
+
+.item input:hover+label>.meme {
   max-height: 300px;
-  margin: 20px auto;
+  margin: 0px auto;
   display: block;
 }
 
-.item input:checked~.meme {
+.item input:checked+label>.meme {
   max-height: 300px;
-  margin: 20px auto;
+  margin: 0px auto;
   display: block;
 }
 
 .item:hover input~.meme {
   max-height: 300px;
-  margin: 20px auto;
+  margin: 0px auto;
   display: block;
 }
 
 .item-line {
   display: flex;
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
   cursor: pointer;
 }
 
