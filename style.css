@@ -2,14 +2,12 @@
   --color-bg-white: #FFFFFF;
   --color-font-base: #202020;
   --color--font-accent: #000000;
-  --color-decor-blue: rgb(51, 51, 220);
+  --color-decor-blue: #3333dc;
   --color-bg-grey: #F4F4F4;
   --color-checked-grey: #C4C4C4;
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -23,8 +21,8 @@ body {
   font-family: 'Quantico';
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.2em;
+  /* line-height: 2em; */
 }
 
 main {
@@ -35,9 +33,9 @@ main {
 }
 
 h1 {
-  margin: 40px auto 20px;
-  font-size: 40px;
-  line-height: 44px;
+  margin: 2vw auto 2vw;
+  font-size: 1.8em;
+  line-height: 1.8em;
   font-weight: 700;
 }
 
@@ -50,11 +48,12 @@ h1 {
   font-family: 'Quantico';
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-  padding: 10px 20px 10px 20px;
-  border-bottom: 1px solid var(--color-checked-grey);
+  font-size: 1.3em;
+  line-height: 1.3em;
+  padding: 1% 2% 1% 2%;
+  border-bottom: .1vh solid var(--color-checked-grey);
   width: 100%;
+  transition: color .35s;
 }
 
 .item input {
@@ -72,12 +71,21 @@ h1 {
   transform: rotate(-45deg);
 }
 
+.item input[type=radio]:active+label .item-line {
+  color: var(--color-decor-blue);
+  transition: color .35s;
+}
+
+.item input[type=radio]:checked+label .item-line {
+  color: var(--color--font-accent);
+}
+
 .meme {
   max-height: 0;
   overflow: hidden;
   transition: max-height .35s;
   display: block;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 label {
@@ -85,20 +93,20 @@ label {
 }
 
 .item input:hover+label>.meme {
-  max-height: 300px;
-  margin: 0px auto;
+  max-height: 20vw;
+  margin: 0 auto;
   display: block;
 }
 
 .item input:checked+label>.meme {
-  max-height: 300px;
-  margin: 0px auto;
+  max-height: 20vw;
+  margin: 0 auto;
   display: block;
 }
 
 .item:hover input~.meme {
-  max-height: 300px;
-  margin: 0px auto;
+  max-height: 30vw;
+  margin: 0 auto;
   display: block;
 }
 
@@ -115,6 +123,7 @@ label {
   visibility: hidden;
 }
 
+
 .bayan-container:hover .icon {
   visibility: visible;
 }
@@ -123,8 +132,14 @@ label {
   color: var(--color--font-accent);
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 1em;
+  }
+}
 
-/* .icon:hover {
-  color: var(--color--font-accent);
-  transform: scale(1.1);
-} */
+@media (max-width: 390px) {
+  body {
+    font-size: .8em;
+  }
+}
